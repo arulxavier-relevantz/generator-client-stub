@@ -22,12 +22,12 @@ model.address.zip = 12345;
 });
 
 /** Get by employee id and update */
-let employeeModel1;
+let entity;
 <%= name %>.getById("1000001", (data) => {
     console.log("GET : " + data);
     entity = data.message;
     entity.name.first = "arul";
-    <%= name %>.update(entity._id, employeeModel1, (data) => {
+    <%= name %>.update(entity._id, entity, (data) => {
         console.log("PUT : " + data);
     });
 });

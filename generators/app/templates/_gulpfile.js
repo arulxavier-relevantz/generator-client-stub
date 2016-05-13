@@ -14,7 +14,7 @@ gulp.task('compile', ['installTypings'], function () {
     .src(["lib/**/*.ts", 'typings/index.d.ts'])
     .pipe(ts(tsProject))
     .js
-    .pipe(gulp.dest("lib"))
+    .pipe(gulp.dest("."))
 });
 
 gulp.task('default', ["compile"], function () {  
