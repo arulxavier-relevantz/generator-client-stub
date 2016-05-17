@@ -1,4 +1,5 @@
 import * as http  from "http";
+let packageJson = require("../package.json");
 
 class <%= name %> {
 
@@ -7,7 +8,7 @@ class <%= name %> {
         var request:http.ClientRequest = http.request({
             host: "localhost",
             port: 8888,
-            path: '/v1/<%= nameToLower %>',
+            path: '/' + packageJson.version + '<%= nameToLower %>',
             method: 'GET'
         });
 
@@ -31,7 +32,7 @@ class <%= name %> {
         var request:http.ClientRequest = http.request({
             hostname: "localhost",
             port: 8888,
-            path: "/v1/<%= nameToLower %>",
+            path: '/' + packageJson.version + '<%= nameToLower %>',
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -57,7 +58,7 @@ class <%= name %> {
         var request:http.ClientRequest = http.request({
             host: "localhost",
             port: 8888,
-            path: '/v1/<%= nameToLower %>/' + id,
+            path: '/' + packageJson.version + '<%= nameToLower %>' + id,
             method: 'GET'
         });
 
@@ -81,7 +82,7 @@ class <%= name %> {
         var request:http.ClientRequest = http.request({
             hostname: "localhost",
             port: 8888,
-            path: "/v1/<%= nameToLower %>/" + id,
+            path: '/' + packageJson.version + '<%= nameToLower %>' + id,
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",
@@ -106,7 +107,7 @@ class <%= name %> {
         var request:http.ClientRequest = http.request({
             host: "localhost",
             port: 8888,
-            path: '/v1/<%= nameToLower %>/' + id,
+            path: '/' + packageJson.version + '<%= nameToLower %>' + id,
             method: 'DELETE'
         });
 
