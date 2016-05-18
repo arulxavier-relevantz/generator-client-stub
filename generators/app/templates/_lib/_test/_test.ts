@@ -1,8 +1,9 @@
-import { <%= name %> } from "../<%= name %>";
+import { <%= name %>MicroServiceStub } from "../<%= name %>MicroServiceStub";
 import { I<%= name %>Model, <%= name %>Model } from "entity-<%= nameToLower %>";
 
+let <%= nameToLower %>MicroServiceStub = new <%= name %>MicroServiceStub("localhost", "8888");
 /** Get all */
-<%= name %>.get((data) => {
+<%= nameToLower %>MicroServiceStub.get((data) => {
    console.log("GET : " + data); 
 });
 
@@ -17,13 +18,13 @@ model.address.city = "Atlanta";
 model.address.state = "GA";
 model.address.zip = 12345;
 
-<%= name %>.create(model, (data) => {
+<%= nameToLower %>MicroServiceStub.create(model, (data) => {
     console.log("POST : " + data); 
 });
 
 /** Get by employee id and update */
 let entity;
-<%= name %>.getById("1000001", (data) => {
+<%= nameToLower %>MicroServiceStub.getById("1000001", (data) => {
     console.log("GET : " + data);
     entity = data.message;
     entity.name.first = "arul";
@@ -33,7 +34,7 @@ let entity;
 });
 
 /** Delete */
-<%= name %>.delete("5734dbdd6e64579304027e92", (data) => {
+<%= nameToLower %>MicroServiceStub.delete("5734dbdd6e64579304027e92", (data) => {
     console.log("DELETE : " + data);
 });
 

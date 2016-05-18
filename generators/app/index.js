@@ -64,7 +64,7 @@ module.exports = yeoman.Base.extend({
     );
     this.fs.copyTpl(
       this.templatePath('_lib/_ClientStub.ts'),
-      this.destinationPath('lib/' + this.props.name + '.ts'), {
+      this.destinationPath('lib/' + this.props.name + 'MicroServiceStub.ts'), {
         name: this.props.name,
         nameToLower: this.props.name.toLowerCase()
       }

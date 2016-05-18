@@ -1,14 +1,22 @@
 import * as http  from "http";
 let packageJson = require("../package.json");
 
-class <%= name %> {
+class <%= name %>MicroServiceStub {
+    
+    host;
+    port;
+
+    constructor(_host, _port) {
+        this.host = _host;
+        this.port = _port;
+    }
 
     public static get(callback) {
         console.log(callback);
         var request:http.ClientRequest = http.request({
-            host: "localhost",
-            port: 8888,
-            path: '/' + packageJson.version + '<%= nameToLower %>',
+            host: this.host,
+            port: this.port,
+            path: '/v' + packageJson.version + '<%= nameToLower %>',
             method: 'GET'
         });
 
@@ -30,9 +38,9 @@ class <%= name %> {
         var postData = JSON.stringify(input);
 
         var request:http.ClientRequest = http.request({
-            hostname: "localhost",
-            port: 8888,
-            path: '/' + packageJson.version + '<%= nameToLower %>',
+            host: this.host,
+            port: this.port,
+            path: '/v' + packageJson.version + '<%= nameToLower %>',
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -56,9 +64,9 @@ class <%= name %> {
     public static getById(id, callback) {
 
         var request:http.ClientRequest = http.request({
-            host: "localhost",
-            port: 8888,
-            path: '/' + packageJson.version + '<%= nameToLower %>' + id,
+            host: this.host,
+            port: this.port,
+            path: '/v' + packageJson.version + '<%= nameToLower %>' + id,
             method: 'GET'
         });
 
@@ -80,9 +88,9 @@ class <%= name %> {
         var postData = JSON.stringify(input);
 
         var request:http.ClientRequest = http.request({
-            hostname: "localhost",
-            port: 8888,
-            path: '/' + packageJson.version + '<%= nameToLower %>' + id,
+            host: this.host,
+            port: this.port,
+            path: '/v' + packageJson.version + '<%= nameToLower %>' + id,
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",
@@ -105,9 +113,9 @@ class <%= name %> {
 
     public static delete(id, callback) {
         var request:http.ClientRequest = http.request({
-            host: "localhost",
-            port: 8888,
-            path: '/' + packageJson.version + '<%= nameToLower %>' + id,
+            host: this.host,
+            port: this.port,
+            path: '/v' + packageJson.version + '<%= nameToLower %>' + id,
             method: 'DELETE'
         });
 
@@ -125,4 +133,4 @@ class <%= name %> {
     }
 }
 
-export { <%= name %> }
+export { <%= name %>MicroServiceStub }
